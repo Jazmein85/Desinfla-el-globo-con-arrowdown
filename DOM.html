@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desinflar globo</title>
+</head>
+<body>
+    
+    <p>🎈</p>
+<script>
+    let p = document.getElementsByTagName("p")[0];
+    var size;
+
+    function setSize(newSize) {
+        size = newSize;
+        p.style.fontSize = size + "px";
+    }
+
+    setSize(20);
+
+    function handleArrow(event) {
+        if (event.key === "Arrowup") {
+            if (size > 80){
+            document.body.removeEventListener("keyup", handleArrow);
+        } else {
+            setSize(size * 1.1);
+            event.preventDefault();
+            }
+        } else if (event.key == "ArrowDown") {
+            p.textContent = "💥";
+            setSize(size * 0.9);
+            event.preventDefault();
+        }
+        }
+
+    document.body.addEventListener("keydown", handleArrow);
+</script>
+</body>
+</html>
